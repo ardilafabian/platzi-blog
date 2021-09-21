@@ -12,7 +12,6 @@ class App extends Component {
 
   async componentDidMount() {
     const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-    console.log(response.data);
     this.setState({
       usuarios: response.data
     });
@@ -20,7 +19,7 @@ class App extends Component {
   
   ponerFilas = () => (
     this.state.usuarios.map((usuario) => (
-      <tr>
+      <tr key={usuario.id}>
         <td>
           { usuario.name }
         </td>
