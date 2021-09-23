@@ -1,3 +1,12 @@
 const INITIAL_STATE = {
-    usuarios: {}
+    usuarios: []
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'traer_suarios':
+            return { ...state, usuarios: action.payload }
+        default: return state;
+    }
 };
